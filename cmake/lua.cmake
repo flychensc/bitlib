@@ -14,7 +14,7 @@ set ( INSTALL_CMOD ${INSTALL_LIB}/lua
 option ( LUA_SKIP_WRAPPER
          "Do not build and install Lua executable wrappers." OFF )
 option ( LUA_STATIC_MODULE "Build modules for static linking" ON )
-option ( LUA_DYNAMIC_MODULE "Build modules for dynamic linking" OFF )
+option ( LUA_DYNAMIC_MODULE "Build modules for dynamic linking" ON )
 
 # List of (Lua module name, file path) pairs.
 # Used internally by add_lua_test.  Built by add_lua_module.

@@ -113,7 +113,7 @@ ARITHMETIC_SHIFT(lshift,  <<)
 LOGICAL_SHIFT(rshift,     >>)
 ARITHMETIC_SHIFT(arshift, >>)
 
-static const struct luaL_reg bitlib[] = {
+static const struct luaL_Reg bitlib[] = {
   {"cast",    bit_cast},
   {"bnot",    bit_bnot},
   {"band",    bit_band},
@@ -126,8 +126,8 @@ static const struct luaL_reg bitlib[] = {
 };
 
 LUALIB_API int luaopen_bit (lua_State *L) {
-  luaL_register(L, "bit", bitlib);
-  lua_pushnumber(L, BIT_BITS);
-  lua_setfield(L, -2, "bits");
+  lua_newtable(L);
+  luaL_setfuncs(L, bitlib, 0);
+  lua_setglobal(L, "bit");
   return 1;
 }
